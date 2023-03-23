@@ -1,0 +1,93 @@
+'''
+2023.3.1    星期三     222100306   洪朗晨     Python后端第一轮
+'''
+
+'''
+            < 笔 记 >
+<1>
+# json是前后端数据交互格式
+# json 和 字典 相互转化
+# 键值对方式取值
+
+# 前端：1.负责好看 2.同一页面显示不同数据（实时变化）
+# 后端：具体功能实现
+
+<其他>
+python无清屏命令
+
+<2>
+ORM的查询命令
+ORM库中常用的查询命令有filter、exclude、get和all等。
+比如，假设我们有一个User数据表，其中包含有id、name、age等字段。
+
+- filter:使用filter方法可以进行多个条件的并集筛选。
+    from myapp.models import User
+    # 查询年龄在18岁以上且姓名不为'John'的所有用户
+    Example：
+    - users = User.objects.filter(age_gt=18).exclude(name='John')
+
+- exclude:使用exclude方法可以对查询结果进行取反筛选。
+    from myapp.models import User
+    # 查询年龄小于等于18岁或者姓名为'John'的所有用户
+    - users = User.objects.exclude(age___gt=18).filter(name='John')
+
+- get:使用get方法可以直接获取符合条件的唯——对象，如果查询结果不唯——则会抛出异常。
+    from myapp.models import User#获取名字为'John'的用户对象user =User.objects.get(name='John')
+
+- all:使用all方法可以获取某个表中所有的对象
+    from myapp.models import User
+    # 获取所有用户的列表
+    users = User.objects.all()
+
+此外，还有很多其他的查询命令可以使用，例如count、exists、values等。需要根据具体的需求进行选择使用。
+
+
+'''
+            < debug >
+1.
+# debug:requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+# 原因：url写错了
+# url直接网址复制粘贴了，其实要在Headers里找
+
+2.
+sys.exit()
+执行该语句会直接退出程序，这也是经常使用的方法，也不需要考虑平台等因素的影响，一般是退出Python程序的首选方法。
+该方法中包含一个参数status，默认为0，表示正常退出，也可以为1，表示异常退出。
+'''
+
+'''
+            < Questions >
+1. retrun render_template('login.html',**{"erro":error})
+    中的**是啥意思?解释看不懂。
+
+解释：
+    在Python编程语言中，` ** `是一个特殊的符号，用于将一个字典解包成一个函数的关键字参数。
+    在这里， ` ** {"erro": error}` 的意思是将字典 `{"erro": error}` 解包，并作为关键字参数传递给`render_template`函数。
+    具体来说， `render_template`是Flask框架中一个用于渲染HTML模板的函数，它可以接收多个关键字参数，这些参数将传递给HTML模板，以便在模板中使用
+    在这个例子中，` ** {"erro": error}` 表示将字典 `{"erro": error}` 中的"erro"作为关键字参数传递给`render_template`函数，以便在HTML模板中使用。
+
+2. `request.args.get('re')` 是 Flask 中获取 GET 请求中参数的方法。
+    1) 其中，`request` 代表 HTTP 请求对象，在 Flask 中由 `flask.request` 提供；
+    2) `args` 是一个字典，它包含了 URL 中的所有参数；`get()` 是 Python 字典的方法，用于获取 `args` 中指定名称的参数值。
+    因此，`request.args.get('re')` 返回的是名为 're' 的 GET 请求参数的值，如果没有该参数则返回 None。
+
+3. 获取提交的数据
+    request.args    # GET形式传递的参数
+    request.form    # POST形式提交的参数
+    data = request.get_json()  # 不知道什么json
+
+    返回数据
+    return render_template("模板文件")
+    return jsonify()
+    return redirect('/index')
+    return redirect(url_for('idx'))
+    return "..."
+
+4. 获取表长度
+   length = Music.query.count()
+   print("Music表长度为: ",length)
+   这里调用了SQLAlchemy中的'query)'方法，然后使用`count()`方法获取Music表的长度。
+'''
+
+            <Problems>
+'''

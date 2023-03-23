@@ -6,7 +6,6 @@ import pymysql
 pymysql.install_as_MySQLdb()
 app = Flask(__name__)
 #==============================================================#
-
 class Config():
     DEBUG=True
     # 数据库链接配置 = 数据库名称://登录账号:登录密码@数据库主机IP:数据库访问端口/数据库名称?charset=编码类型
@@ -17,6 +16,7 @@ app.config.from_object(Config)
 #==============================================================#
 # 不太明白上面代码的意思，但不敢动它，一不小心就报错
 #==============================================================#
+
 # 链接数据库
 db = SQLAlchemy(app)
 # 创建表
@@ -46,7 +46,6 @@ def s_all():
     return TDL.query.all()
 # 查 id
 def s_id(id):
-
     return TDL.query.get(id) # 用get
 # 查 关键字
 def s_key(key):
@@ -232,6 +231,6 @@ def del_all():
         return jsonify(cp_f())
 #==============================================================#
 #                      以上代码成功
-app.run(debug=True)
+app.run(debug=True,port=8001)
 
 #==============================================================#
