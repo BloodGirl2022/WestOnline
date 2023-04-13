@@ -35,8 +35,8 @@ def login( ):
     # 浏览器将会显示出"登录”这个文本;
     # return render_template('login.html')  # render
 
-    if request.method == 'GET':
-        return redirect("http://localhost:5173/#/login")
+    # if request.method == 'GET':
+    #     return redirect("http://localhost:5173/#/login")
     # 正常访问网址时就打开界面，前端界面
     # 不确定
 
@@ -48,7 +48,7 @@ def login( ):
     get_username = info.get('username')
     get_password = info.get('password') # 拿到的是password不是hash_password
     # fs.get_form(info,get_username,get_password,'')
-    get_hash_password = fs.hash(get_password)    # 将get到的密码hash处理
+    hash_password = fs.hash(get_password)    # 将get到的密码hash处理
     # print('-TEST-GET获取到的用户名和密码如下:',end='')
     # print(fs.show_uandp(get_username, get_password))  # 检查是否正确得到用户名和密码
     # print('-TEST-the type of username is:',end='')
@@ -82,13 +82,15 @@ def login( ):
         # print(get_hash_password)  # 正常
         # print(store_password)
 
+        # 不用存token
         # 用封装好的函数生成token
         token = myjwt.crt_token(get_username, user.hash_password)
         user.token=token    # 存token
         db.session.commit()
+
         # （TEST）数据库中的
         # print(fs.show_iuandp(store_id, get_username, store_password))  # 检查是否正确得到用户名和密码,数据库中的
-        if myjwt.ckpwd(store_password,get_hash_password): # 判断这俩家伙是否相等
+        if myjwt.ckpwd(store_password,hash_password): # 判断这俩家伙是否相等
             return jsonify(fs.suc(fs.lgin_suc(store_id, user.username, token)))  # 成功    链接数据库
         else:   # 密码哈希值不正确
             # print(store_password)                                                                                                                                                                                          print(get_hash_password)
@@ -97,8 +99,8 @@ def login( ):
 # 注册 test 成功
 @userr.route('/user', methods=['POST'])
 def register():
-    if request.method == 'GET':
-        return redirect("http://localhost:5173/#/login")
+    # if request.method == 'GET':
+    #     return redirect("http://localhost:5173/#/login")
     # 正常访问网址时就打开界面，前端界面
 
     # post表单数据时，处理数据，以下是处理数据
@@ -127,6 +129,7 @@ def register():
 
         # 问题6：自增的id不知道能不能直接获得
         user = User.query.get(get_username)  # 在数据库中查找username，以及对应id
+        # User.query.filter_by(username=get_username).all()
         store_id = user.id  # 查询到的id
 
         return fs.suc(fs.regi_suc(store_id,get_username))
