@@ -1,0 +1,64 @@
+#2022_10_30_19:29 福州大学222100306修改
+# 你看我注释，我把你代码改了，然后你一会跟你自己写的比比看，交作业的时候就把这段话删去（@若凝_python_222100306）
+# 你看这里是你的成员数据，以后引用，你都要加个“self.”，也就是”self.product_serial_num"
+class Product:
+    '''
+    做笔记：
+    1.创建数据成员的时候是在__init__函数里,而不是写在类的外面
+    2.变量（包括数据成员），用小写开头,可以用下划线命名法（就像你这样命名）；常量（虽然我还不知道怎么用，但是我知道有这个东西），用大写字母开头
+    3.数据不要用None赋值，None是赋值给指针的
+    4，平时写代码的时候发现变量变成灰色，那么说明这个变量没用（没用到）
+    5.用input的时候，输入的值就会赋值给前面的变量（默认str类型）
+    6.你要的“教程“：https://blog.csdn.net/wxl7777/article/details/84556537
+    7.”菜鸟教程“挺好用，
+    '''
+    '''
+    # 从网上资料看，一个类，创建数据成员的时候是在__init__函数里,而不是写在类的外面
+    # 所以我就把这段删去咯(三个'是注释的意思)
+    product_serial_num = 0        # emm用None虽然没有出bug(但是我不知道能不能这么用)，None一般不是给变量赋值的（你以后会学）
+    product_name = 0
+    unit_price = 0
+    total_num = 0
+    remaining_num = 0
+    '''
+
+    def __init__(self, num1, num2, num3, num4, num5):   # 传入的变量的名字
+        
+        self.__product_serial_num= num1                   # 数据成员的创建和赋值
+        self.product_name= num2
+        self.total_num= num3
+        self.remaining_num= num4
+        self.unit_price= num5
+
+    def setdata(self):                                  # 删除了num1-5，你没用到他们
+        self.__product_serial_num = input("商品序号:")      # 当你用input的时候，输入的值就会赋值给前面的变量（默认str类型）
+        self.product_name = input("商品名称:")
+        self.total_num = int(input("总数量:"))
+        self.remaining_num = int(input("剩余数量:"))
+        self.unit_price = int(input("单价:"))
+
+    def display(self):                                  # 删除了num1-5，你没用到他们
+        print("商品序号为：")                             # 想要不换行，每个print加上end=''，如print（"商品序号为：",end=''）
+        print(self.__product_serial_num)
+        print("商品名称：")
+        print(self.product_name)
+        print("总数量:")
+        print(self.total_num)
+        print("剩余数量:")
+        print(self.remaining_num)
+        print("单价:")
+        print(self.unit_price)
+
+    def income(self):
+        i = (self.total_num-self.remaining_num)*self.unit_price
+        print("已售出价格为:", str(i))
+
+# 参数都该正确
+a = Product(1,"我是帅哥",100,4,5)  # 初始值你可以随便
+# a.setdata()                     # 创建后直接修改，就看不到原始值啦！
+a.display()
+a.income()
+a.__product_serial_num
+print("您想将信息修改为：")
+a.setdata()
+a.display()

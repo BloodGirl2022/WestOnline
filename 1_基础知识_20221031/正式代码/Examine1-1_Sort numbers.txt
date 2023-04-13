@@ -1,0 +1,86 @@
+#2022_10_22     2320747195@qq.com       @福州大学222100306洪朗晨
+#输入三个整数，多种方式比大小输出
+                                #子函数
+#输入数字-初级版
+'''
+n1=input("请输入第一个数：")
+print(n1)
+n2=input("请输入第二个数：")
+print(n2)
+n3=input("请输入第三个数：")
+print(n3)
+'''
+
+#输入数字-进阶版(并以整型的形式存储)
+def input_list (list,len):
+    for i in range (0,len):   #连续输入三个数
+        list.append(int(input("请输入第"+str(i+1)+"个数：")))  #！！！注意此处如果不将输入转化为int类型，以下的函数不可正常使用！！！
+
+'''
+#算法1-手动冒泡
+if n1>n2:
+    n1,n2=n2,n1
+if n2>n3:
+    n2,n3=n3,n2
+if n1>n2
+    n1,n2=n2,n1
+'''
+
+#算法2-某类很慢的排序- ps:还可以用二叉树等算法，输入参数即可使用
+def bubble_sort(list,len):
+    for i in range (0,len-1):#初始  到   最后一个的前一个
+        for j in range (i+1,len):#初始的下一个  到   最后一个
+            if list[i]>list[j]:
+                list[i],list[j]=list[j],list[i]#交换
+
+#算法3-sorted函数
+#算法4-list的.sort()函数
+
+'''
+#输出列表（升序+<） ps:感觉这个函数有点没必要...
+def show(list,len):
+    for i in range(0, len-1):  # 连续输出len个数,先输出len-1个数
+        print(str(list[i])+"<")
+    print(str(list[len-1]))
+'''
+
+                                #主函数
+
+list=[] #创建一个空列表
+len=3   #定义len=3
+input_list(list,len)    #输入列表
+list_sorted=list   #保留原列表list，list_sorted为排序后的列表，即将对list_sorted执行命令
+
+'''
+#算法2的代码
+bubble_sort(list_sorted,len)
+'''
+'''
+#算法3的代码
+list_sorted=sorted(list)
+'''
+#算法4的代码
+list_sorted.sort()
+print(list_sorted)
+
+#输出列表
+print(list_sorted)      #或show(list_sorted,len)
+
+
+'''
+感悟：
+1.sorted和sort的其他格式还不会用
+    小记一下(1-不会的)：
+        sorted(iterable,cmp=None,key=None,reverse=False)
+        只明白了reverse=False表示默认升序
+    小记一下(2-学会的)：
+        sorted(list)        改变了list
+        而
+        print(list.sort())    没有改变list
+        
+2.输入类型转换
+    列表中，input后，如果不自己转化为int类型，默认为str类型...
+！！！！！！输入数字时是不会自动转化为int类型的！！！！！！
+3.排序算法
+    用sort和sorted比自己写函数方便多了（但是数字过多可能出现运行速度慢的问题）
+'''

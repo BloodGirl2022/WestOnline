@@ -1,0 +1,121 @@
+# 2022_10_24_Mon-2022_10_27_Thur     2320747195@qq.com       @福州大学222100306洪朗晨       ALL RIGHTS RESERVED.
+# 类的编写——商品类
+
+'''
+(1)设计⼀个商品类，它具有的私有数据成员是商品序号、商品名、单价、总数量和剩余数量。√    ps：增加成本，售出数量，单件利润
+(2)具有的公有成员函数是：
+    ①初始化商品信息的构造函数init   √
+    ②显示商品信息的函数display   √
+    ③计算已售出 商品价值income   √
+    ④修改商品信息的函数setdata
+        ps：我在以下添加了一些子函数
+            def list_choos(self):
+                # 将输入的数字字符串（空格分割）用列表返回
+            def chooseMenu_info(self):
+                # 您要修改哪一项信息？该函数为信息名称菜单表
+                # 将被 setdata 引用
+'''
+
+'''
+增加小功能/升级：
+（1）成本，售出数量，单件利润
+'''
+
+'''
+本人认为1-7作业的另一份 （改了一点点题目：将数据成员存在数组里）写得更完善
+在此程序中未体现，仅仅完成了简陋版，如
+    1.没有对数据进行检验
+    2.对选择修改时输入的字符串没有进行处理（筛选，遍历），一次只能修改一次而且必须保证是数字
+    3.没有计算利润率
+缺点：冗余代码很多
+'''
+
+inf=("商品序号","商品名","单价","成本","总数量","卖出数量","单件利润","剩余数量","总利润","利润率","单位")
+class Items():
+    def __init__(self,sequence,name,price,cost,total_quant,sold_quant,unit_name="个"):
+        self.sequence=sequence                  #商品序号
+        self.name=name                          #商品名
+        self.price=price                        #单价
+        self.cost=cost                          #成本
+        self.earn_unit = price - cost           #单件利润   #(通过计算)
+        self.total_quant=total_quant      #总数量
+        self.sold_quant=sold_quant        #卖出数量
+        self.remain_quant=total_quant-sold_quant    #剩余数量  #(通过计算)
+        self.unit_name=unit_name                #单位
+
+    def display(self):
+        #展示商品信息。虽然看起来代码很复杂，但是大部分是在调整格式，美化界面
+        print("--------------------------------")
+        print("\t"+str(self.sequence)+"."+self.name)
+        print("商品序号\t："+str(self.sequence).center(10))
+        print("商品名\t：" +self.name.center(10))
+        print("单价\t\t：" + str(self.price).center(10)+ "\t元/"+self.unit_name)
+        print("成本\t\t：" + str(self.cost).center(10) + "\t元/"+self.unit_name)
+        print("单件利润\t\t：" + str(self.earn_unit).center(10) + "\t元/" + self.unit_name)
+        print("总数量\t：" +str(self.total_quant).center(10)+"\t"+self.unit_name)
+        print("卖出数量\t："+str(self.sold_quant).center(10)+"\t"+self.unit_name)
+        print("剩余数量\t：" +str(self.remain_quant).center(10)+"\t"+self.unit_name)      #(通过计算)
+        #商品数量单位不展示
+        print("--------------------------------")
+
+    def income(self):
+        #计算当前收入
+        print("当前商品已销售数量为：".ljust(12)+str(self.sold_quant).ljust(10)+self.unit_name)
+        print("单件利润为：".ljust(12)+str(self.earn_unit).ljust(10)+"元")
+        income=self.earn_unit * self.sold_quant
+        print("目前总赚得：".ljust(12)+str(income).ljust(10)+"元")
+        print("--------------------------------")
+        self.income=income  #计算的总收入存入   income数据成员（也在此创建）
+
+    def setdata(self):#！！要注意修改一个信息时其他信息是否也变化！！
+        #修改商品信息
+        self.chooseMenu_info()                  # 显示菜单
+        i=int(input("请问你要修改哪条信息？"))
+        if (i!=''):    # 如果输入不为空，则遍历
+            t = input("请修改"+inf[i-1]+"：")                   # 请修改...
+            print(self.name + "修改后的"+inf[i-1]+"为："+t)      # 修改后的...为：输入
+
+            # 根据i分别对数据进行修改
+            # 重复代码较多
+
+            if i==1:
+                self.sequence=t
+            elif i==2:
+                self.name=t
+            elif i==3:
+                self.price=t
+                self.earn_unit = float(self.price) - float(self.cost)
+            elif i==4:
+                self.cost=t
+                self.earn_unit = float(self.price) - float(self.cost)
+            elif i==5:
+                self.total_quant=t
+                self.remain_quant=float(self.total_quant)-float(self.sold_quant)
+            elif i==6:
+                self.sold_quant=t
+                self.remain_quant = float(self.total_quant )- float(self.sold_quant)
+
+        else:  # 测试成功：输入为空回车时    跳转此句正常
+                print("您未修改任何内容！")
+
+    def chooseMenu_info(self):
+        # 您要修改哪一项信息？该函数为信息名称菜单表
+        # 将被 setdata 引用
+        print("--------------------------------")
+        print("1    商品序号")
+        print("2    商品名")
+        print("3    单价")
+        print("4    成本")
+        print("5    总数量")
+        print("6    卖出数量")
+        print("--------------------------------")
+
+                    #主函数
+pen=Items(1,"Montblanc Pen",5919.16,2650,13,8,"支")  #万宝龙钢笔  （真贵）
+pen.display()
+pen.income()
+
+if input("您是否要修改商品信息？（输入1确认，其他退出）")=="1":
+    pen.setdata()   # 主函数等下再写(●ˇ∀ˇ●)2：08
+    print("修改后的信息为")
+    pen.display()

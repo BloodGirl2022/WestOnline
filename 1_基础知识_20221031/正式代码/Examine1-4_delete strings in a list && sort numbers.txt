@@ -1,0 +1,43 @@
+#2022_10_22_Sat-2022_10_23_Sun     2320747195@qq.com       @福州大学222100306洪朗晨
+#删除列表中的字符串，删除字符串元素，把整数升序排序
+
+list=[] #规定list类型为列表
+list_del=[] #整理之后的列表
+
+flag="s"    #随便赋个不为空的值
+while not flag=="":#检验输入
+    #保存原数列
+    list.append(flag)
+    #删去字符串
+    if flag.isdigit():
+        list_del.append(int(flag))
+    #新输入
+    flag=((input("请输入第"+str(len(list))+"个元素：")))
+
+#print(len(list))   #数组长度——》检验是否每个值都正常输入
+list.pop(0) #把第一个占位的元素删除
+
+#输出
+if(len(list)):
+    print("原数列如下：\n"+str(list))
+    print("删除字符串后的数列如下：")
+    list_del.sort()
+    print(list_del)
+else:
+    print("请输入元素！")
+
+'''
+感悟：
+1.学会了未知长度数列输入的结束表达：
+    while not list[i]=="":
+2.易错
+    不能用list[i]添加数列，一定要用append!!!
+3.pop删除数组元素
+    list.pop(1)
+    删除下标为1的元素
+4.判断类型
+    if type(a) is int:
+*！5.发现之前总结的知识错误-sort
+    （1）list.sort()也会改变原数列
+    （2）不能直接print(list.sort())   !!!
+'''
