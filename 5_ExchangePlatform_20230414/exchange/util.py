@@ -12,7 +12,6 @@ with open('SECRET_KEY.txt', encoding='utf-8') as file_obj:  # 将秘钥写在配
 SECRET_KEY = contents.rstrip()  # 秘钥
 # ==============================================================#
 
-
 # 用来将密码用哈希算法加密的算法
 def hash(password:str):
     # 使用SHA-256算法对密码进行哈希，并将结果转换为十六进制字符串。
