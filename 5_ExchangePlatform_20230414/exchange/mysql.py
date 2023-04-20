@@ -58,22 +58,33 @@ class Merchandise(db.Model):
     create_time = db.Column(db.DateTime, nullable=False)  # 商品创建时间：不为空
     update_time = db.Column(db.DateTime, nullable=False)  # 商品最后更新时间：不为空
 
-# 创建表-存储订单信息（订单的表格设计也许可以参考“组合查询“的方法，比如订单1中有商品1商品2,那么要同时查询”订单号“”商品号”才可以定位）
 class Order(db.Model):
     """
     订单表
     """
     tablename = "Order"
-    id = db.Column(db.Integer, autoincrement=True, primary_key=True) # 订单编号：订单的唯一标识符，通常为数字或字符串。
-    customer_id = db.Column(db.Integer, nullable=False) # 顾客编号：顾客的唯一标识符，通常为数字或字符串。
-    merchandise_id = db.Column(db.Integer, nullable=False) # 商品编号：商品的唯一标识符，通常为数字或字符串。
-    price = db.Column(db.Float, nullable=False) # 商品单价：商品的价格，通常为数字。
-    quantity = db.Column(db.Integer, nullable=False) # 商品数量：购买商品的数量，通常为数字。
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)  # 订单编号：订单的唯一标识符，通常为数字或字符串。
+    customer_id = db.Column(db.Integer, nullable=False)  # 顾客编号：顾客的唯一标识符，通常为数字或字符串。
+    total_price = db.Column(db.Float, nullable=False)  # 订单总价：购买商品的总价，通常为数字。
+    status = db.Column(db.String(10), nullable=False)  # 订单状态：订单的状态，通常为文字，如"待付款"、"已付款"、"已发货"、"已完成"等。
+    create_time = db.Column(db.DateTime, nullable=False)  # 订单创建时间：订单创建的时间，通常为日期时间格式。
+    update_time = db.Column(db.DateTime, nullable=False)  # 订单更新时间：订单更新的时间，通常为日期时间格式。
+
+class OrderDetail(db.Model):
+    """
+    订单明细表
+    """
+    tablename = "OrderDetail"
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)  # 订单明细编号：订单明细的唯一标识符，通常为数字或字符串。
+    order_id = db.Column(db.Integer, db.ForeignKey('Order.id'), nullable=False)  # 订单编号：订单的唯一标识符，通常为数字或字符串。
+    merchandise_id = db.Column(db.Integer, nullable=False)  # 商品编号：商品的唯一标识符，通常为数字或字符串。
+    price = db.Column(db.Float, nullable=False)  # 商品单价：商品的价格，通常为数字。
+    quantity = db.Column(db.Integer, nullable=False)  # 商品数量：购买商品的数量，通常为数字。
     unit_price = db.Column(db.Float, nullable=False)  # 某商品总价：商品的价格，通常为数字。
-    total_price = db.Column(db.Float, nullable=False) # 订单总价：购买商品的总价，通常为数字。
-    status = db.Column(db.String(10), nullable=False) # 订单状态：订单的状态，通常为文字，如"待付款"、"已付款"、"已发货"、"已完成"等。
-    create_time = db.Column(db.DateTime, nullable=False) # 订单创建时间：订单创建的时间，通常为日期时间格式。
-    update_time = db.Column(db.DateTime, nullable=False) # 订单更新时间：订单更新的时间，通常为日期时间格式。
+
+'''
+在订单明细表中，我们可以使用外键order_id关联到订单表中的id字段，从而实现订单和订单明细之间的关联。同时，我们可以将订单明细表中的unit_price字段和total_price字段去掉，因为它们可以通过计算price和quantity来得到。
+'''
 
 # ==============================================================#
 # 执行
