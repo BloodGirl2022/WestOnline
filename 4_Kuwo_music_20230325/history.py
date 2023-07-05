@@ -1,7 +1,7 @@
 from flask import request
 import sys
 sys.path.append('/path/to/PyJWT')
-import myjwt
+# import myjwt
 from mysql import Music
 from mysql import app
 from mysql import db
@@ -22,7 +22,6 @@ def delete():
     # Authorization = request.headers.get('Authorization')  # 获取
     # if not Authorization:
     #     return fs.fail404("未登录")
-    # token = myjwt.authorized_user(Authorization)
     # if not token:
     #     return fs.fail403()  # token检验失败
 

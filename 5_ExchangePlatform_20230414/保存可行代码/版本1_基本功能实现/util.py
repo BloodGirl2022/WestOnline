@@ -68,27 +68,3 @@ def authorized_user(token):  # 校验token的函数
             return payload  # 返回id，username，password等
     except Exception as e:
         return False
-
-
-
-
-
-
-# # 检查用户是否已登录
-#     Authorization = request.headers.get('Authorization')
-#     # 未登录
-#     if not Authorization:
-#         return jsonify({'message': '未提供token，请先登录！', "code": 408})
-#     try:
-#     # 已登录
-#         payload = jwt.decode(Authorization, SECRET_KEY, algorithms=["HS256"])
-#         print(payload)
-#     except Exception :
-#         return jsonify({'message': 'JWT签名检验失败！', "code": 410})  # token检验失败
-#
-#     # 解码
-#     payload = util.authorized_user(Authorization)  # return payload
-#     print(payload)# 返回id，username，password等
-#
-#     if not payload:
-#         return jsonify({'message': 'token检验失败(用户不存在)！',"code":409}) # token检验失败

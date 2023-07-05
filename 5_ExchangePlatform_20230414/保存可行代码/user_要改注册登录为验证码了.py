@@ -58,6 +58,8 @@ def login( ):
 
         if util.ckpwd(store_password,hash_password): # 判断这俩家伙是否相等
             data={
+                "code":200,     # 状态码，表示成功
+                "msg" :"登录成功",  # 提示信息，表示操作成功的提示信息
                 "token":token,   # token，用于验证用户身份
                 "username":user.username,  # 用户名
                 "id":user.id,  # 用户id，主键
@@ -67,13 +69,8 @@ def login( ):
                 "register_time": user.register_time.strftime('%Y-%m-%d %H:%M:%S'),  # 注册时间
                 "last_time": user.last_time.strftime('%Y-%m-%d %H:%M:%S')  # 上次登录时间
             }
-            data_t={
-                "code": 200,  # 状态码，表示成功
-                "msg": "登录成功",  # 提示信息，表示操作成功的提示信息
-                "data":data,
-            }
             print(token)
-            return jsonify(data_t)  # 成功    链接数据库
+            return jsonify(data)  # 成功    链接数据库
         else:   # 密码哈希值不正确
             # print(store_password)
             # print(get_hash_password)
@@ -122,8 +119,9 @@ def register():
 
         # 整理用户信息，这里用户信息从数据库存取，响应正确则表示数据也正确读入数据库
         user = User.query.filter_by(username=get_username).first()  # 在数据库中查找username，以及对应id
-
         data = {
+            "code": 201,  # 状态码，表示成功
+            "msg": "注册成功",  # 提示信息，表示操作成功的提示信息
             "username": user.username,  # 用户名
             "id": user.id,  # 用户id，主键
             "email": user.email,  # 邮箱
@@ -132,12 +130,7 @@ def register():
             "register_time": user.register_time.strftime('%Y-%m-%d %H:%M:%S'),  # 注册时间
             "last_time": user.last_time.strftime('%Y-%m-%d %H:%M:%S')  # 上次登录时间
         }
-        data_t={
-            "code": 201,  # 状态码，表示成功
-            "msg": "注册成功",  # 提示信息，表示操作成功的提示信息
-            "data":data
-        }
-        return jsonify(data_t)
+        return jsonify(data)
 
 # 注销
 @app.route('/delete/account', methods=['POST'])
@@ -168,3 +161,6 @@ def delete_account():
             # print(store_password)
             # print(get_hash_password)
             return jsonify({"code": 402, "msg": "密码错误"})
+
+
+
