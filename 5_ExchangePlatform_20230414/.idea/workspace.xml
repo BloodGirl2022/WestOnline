@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af07ea77-25fa-4525-9a9c-07600c333b5d" name="变更" comment="" />
+    <list default="true" id="af07ea77-25fa-4525-9a9c-07600c333b5d" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/exchange/BLL/chatroom/server_chat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exchange/UI/client_chat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exchange/others/alipay.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchange/SECRET_KEY.txt" beforeDir="false" afterPath="$PROJECT_DIR$/exchange/config/SECRET_KEY.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchange/chat_room.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchange/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchange/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchange/merchandise.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchange/DAL/merchandise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchange/mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchange/DAL/mysql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchange/pay.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchange/others/pay.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchange/sms.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchange/BLL/login/sms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchange/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchange/DAL/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchange/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchange/others/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchange/笔记.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/保存可行代码/user_要改注册登录为验证码了.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/保存可行代码/版本1_基本功能实现/SECRET_KEY.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/保存可行代码/版本1_基本功能实现/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/保存可行代码/版本1_基本功能实现/merchandise.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/保存可行代码/版本1_基本功能实现/mysql.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/保存可行代码/版本1_基本功能实现/pay.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/保存可行代码/版本1_基本功能实现/user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/保存可行代码/版本1_基本功能实现/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/图片/我的个人中心.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/图片/畅易游.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/图片/登录注册.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/图片/管理平台.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/图片/验证码图片/5374.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/图片/验证码图片/5964.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/图片/验证码图片/7364.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/工作流程/3月合作轮.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/工作流程/二手平台设计流程图.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/工作流程/功能.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/工作笔记/问题疑问.md" beforeDir="false" afterPath="$PROJECT_DIR$/工作笔记/问题疑问.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/笔记/sms介绍.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../使用git时遇到的问题及解决.md" beforeDir="false" afterPath="$PROJECT_DIR$/../使用git时遇到的问题及解决.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,19 +57,93 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2QarZleyvG7r3Z7DKxW8NFwuYZT" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/BaiduNetdiskDownload/BaiduSyncdisk/我的资料/西二/Python/Examine/WestOnline/5_ExchangePlatform_20230414",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/BaiduNetdiskDownload/BaiduSyncdisk/我的资料/西二/Python/Examine/WestOnline/5_ExchangePlatform_20230414&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\BaiduNetdiskDownload\BaiduSyncdisk\我的资料\西二\Python\Examine\WestOnline\5_ExchangePlatform_20230414\exchange\config" />
+      <recent name="D:\BaiduNetdiskDownload\BaiduSyncdisk\我的资料\西二\Python\Examine\WestOnline\5_ExchangePlatform_20230414\exchange\DAL" />
+      <recent name="D:\BaiduNetdiskDownload\BaiduSyncdisk\我的资料\西二\Python\Examine\WestOnline\5_ExchangePlatform_20230414\exchange" />
+      <recent name="D:\BaiduNetdiskDownload\BaiduSyncdisk\我的资料\西二\Python\Examine\WestOnline\5_ExchangePlatform_20230414\exchange\.idea\BLL\chatroom" />
+      <recent name="D:\BaiduNetdiskDownload\BaiduSyncdisk\我的资料\西二\Python\Examine\WestOnline\5_ExchangePlatform_20230414\exchange\.idea\BLL\login" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.client_chat">
+    <configuration name="client_chat" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="5_ExchangePlatform_20230414" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/exchange" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="software.aws.toolkits.jetbrains.core.execution.PythonAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="D:\BaiduNetdiskDownload\BaiduSyncdisk\我的资料\西二\Python\Examine\WestOnline\5_ExchangePlatform_20230414\exchange\.idea\Surface\client_chat.py" />
+      <option name="PARAMETERS" value="2" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="server_chat" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="5_ExchangePlatform_20230414" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/exchange" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="software.aws.toolkits.jetbrains.core.execution.PythonAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="D:\BaiduNetdiskDownload\BaiduSyncdisk\我的资料\西二\Python\Examine\WestOnline\5_ExchangePlatform_20230414\exchange\.idea\BLL\chatroom\server_chat.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.client_chat" />
+      <item itemvalue="Python.server_chat" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.server_chat" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
